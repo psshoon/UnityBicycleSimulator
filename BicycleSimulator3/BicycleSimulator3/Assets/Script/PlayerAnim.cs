@@ -1,0 +1,32 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerAnim : MonoBehaviour {
+    PlayerBase entity;
+    Animator anim;
+
+    private void Awake()
+    {
+        entity = GetComponent<PlayerBase>();
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            OnBicycle();
+        }
+
+        if (entity.onBic)
+        {
+
+        }
+    }
+
+    void OnBicycle()
+    {
+        anim.SetBool("onBicycle", !anim.GetBool("onBicycle"));
+    }
+}
