@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBalance : MonoBehaviour {
+    PlayerBase entity;
+    Rigidbody rigid;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Vector3 curRotation;
+    public Vector3 WantedRotation;
+
+    private void Awake()
+    {
+        entity = GetComponent<PlayerBase>();
+        rigid = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        curRotation = rigid.rotation.eulerAngles;
+    }
 }

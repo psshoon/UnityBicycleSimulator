@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
         if (entity.onBic)
         {
             if (Input.GetKey(KeyCode.W))
@@ -25,19 +26,25 @@ public class PlayerMove : MonoBehaviour {
             {
                 AddMoveBackForce();
             }
+
         }
 	}
 
     void AddMoveForwardForce()
     {
-        rigid.AddForce(-transform.forward  * 20, ForceMode.Impulse);
+        rigid.AddForce(-transform.forward  * entity.moveEnergy, ForceMode.Impulse);
     }
 
     void AddMoveBackForce()
     {
         if (entity.isMove)
         {
-            rigid.AddForce(transform.forward * 10, ForceMode.Impulse);
+            rigid.AddForce(transform.forward * entity.moveEnergy * 0.6f, ForceMode.Impulse);
+        }
+        else if (entity.isStop)
+        {
+            print("Back");
+            rigid.AddForce(transform.forward * entity.moveEnergy * 0.4f, ForceMode.Impulse);
         }
     }
 }

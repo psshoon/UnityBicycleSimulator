@@ -21,7 +21,10 @@ public class PlayerAnim : MonoBehaviour {
 
         if (entity.onBic)
         {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
 
+            }
         }
     }
 

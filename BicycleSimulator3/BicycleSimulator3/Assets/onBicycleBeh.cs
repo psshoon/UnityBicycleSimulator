@@ -12,10 +12,32 @@ public class onBicycleBeh : StateMachineBehaviour {
         if (stateInfo.IsName("OnBicycle_01_Idle"))
         {
             entity.onBic = true;
+            entity.isStop = true;
         }
-        else if(stateInfo.IsName("Offbicycle_01 0"))
+
+        else if (stateInfo.IsName("Offbicycle_01 0"))
         {
             entity.onBic = false;
+        }
+
+        else if (stateInfo.IsName("StartPush_01"))
+        {
+            entity.isStop = false;
+        }
+
+        else if (stateInfo.IsName("RideLoop_01"))
+        {
+            entity.isMove = true;
+        }
+
+        else if (stateInfo.IsName("Break_01"))
+        {
+            entity.isMove = false;
+        }
+
+        else if (stateInfo.IsName("RightTilt") || stateInfo.IsName("LeftTilt"))
+        {
+            entity.isMove = false;
         }
     }
 
