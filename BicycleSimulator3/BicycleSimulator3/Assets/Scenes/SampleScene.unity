@@ -1089,6 +1089,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -1170,6 +1171,18 @@ MonoBehaviour:
   target: {fileID: 1514484716}
   distance: 10
   height: 5
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 0}
 --- !u!1 &608033910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1638,7 @@ GameObject:
   - component: {fileID: 823349924}
   - component: {fileID: 823349923}
   - component: {fileID: 823349922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,14 +1955,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1099770649}
   serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 4
-  m_AngularDrag: 13
+  m_Mass: 1000
+  m_Drag: 2
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 64
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!135 &1099770653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1998,6 +2011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a345fb02fd804bb460ac709c566e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  veloCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1099770657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,11 +2029,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  moveEnergy: 140
-  angleEnergy: 100
+  moveVelocity: 1500
+  angleEnergy: 2000
   curAccelForce: 0
-  limitForce: 0
   curAngleAccelForce: 0
+  animMoveForce: 0
+  animAngleForce: 1
   isMove: 0
   isStop: 0
   onBic: 0
@@ -2022,6 +2042,7 @@ MonoBehaviour:
   isTilt: 0
   goBack: 0
   goForward: 0
+  onGround: 0
   speed: {x: 0, y: 0, z: 0}
 --- !u!114 &1099770658
 MonoBehaviour:
@@ -2448,7 +2469,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514484712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9200134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1099770651}

@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour {
     PlayerBase entity;
     Rigidbody rigid;
 
+    public AnimationCurve veloCurve;
+
     private void Awake()
     {
         entity = GetComponent<PlayerBase>();
@@ -17,11 +19,19 @@ public class PlayerMove : MonoBehaviour {
         if (entity.onBic)
         {
             entity.curAccelForce = Input.GetAxis("Vertical") * 1.4f;
-            entity.curAngleAccelForce = Input.GetAxis("Horizontal") / 1.7f;
+            entity.curAngleAccelForce = Input.GetAxis("Horizontal") / 2f;
 
-            rigid.AddForce(-transform.forward * entity.moveEnergy * entity.curAccelForce, ForceMode.Impulse);
+            //rigid.AddForce(-transform.forward * entity.moveEnergy * entity.curAccelForce, ForceMode.Impulse);
             rigid.AddTorque(transform.up * entity.angleEnergy * entity.curAngleAccelForce, ForceMode.Impulse);
 
+            //rigid.MoveRotation(transform.rotation *
+            //    Quaternion.Euler(transform.forward * entity.angleEnergy * Time.fixedDeltaTime));
+
+            //if (entity.onGround)
+            {
+                rigid.MovePosition(transform.position -
+                    (transform.forward * entity.moveVelocity * entity.curAccelForce * Time.fixedDeltaTime) / 100);
+            }
             //if (Input.GetKey(KeyCode.W))
             //{
             //    AddMoveForwardForce();
@@ -31,6 +41,24 @@ public class PlayerMove : MonoBehaviour {
             //{
             //    AddMoveBackForce();
             //}
+        }
+    }
+
+    float AcceleratorCalc(float time)
+    {
+        float AccelNum = 3;
+        //AccelNum = time * entity.ac
+
+        return AccelNum;
+    }
+
+    IEnumerator AccelerCalc()
+    {
+        while (true)
+        {
+            
+
+            yield return new WaitForFixedUpdate();
         }
     }
 

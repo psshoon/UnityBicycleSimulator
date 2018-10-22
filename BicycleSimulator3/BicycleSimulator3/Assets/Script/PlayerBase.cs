@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour {
-    public float moveSpeed, moveEnergy, angleEnergy, curAccelForce, curAngleAccelForce = 0;
+    public float moveSpeed, moveVelocity, angleEnergy, curAccelForce, curAngleAccelForce = 0;
     public float animMoveForce, animAngleForce = 1;
-    public bool isMove, isStop, onBic, isTurn, isTilt, goBack, goForward = false;
+    public bool isMove, isStop, onBic, isTurn, isTilt, goBack, goForward, onGround = false;
 
     public Vector3 speed;
 

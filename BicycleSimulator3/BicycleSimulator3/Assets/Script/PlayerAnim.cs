@@ -14,6 +14,7 @@ public class PlayerAnim : MonoBehaviour {
 
     private void Update()
     {
+        anim.SetFloat("MoveSpeed", entity.moveSpeed);
         if (Input.GetKeyDown(KeyCode.R))
         {
             OnBicycle();
