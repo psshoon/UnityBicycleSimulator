@@ -14,37 +14,43 @@ public class PlayerMove : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
         if (entity.onBic)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                AddMoveForwardForce();
-            }
+            entity.curAccelForce = Input.GetAxis("Vertical") * 1.4f;
+            entity.curAngleAccelForce = Input.GetAxis("Horizontal") / 1.7f;
 
-            if (Input.GetKey(KeyCode.S))
-            {
-                AddMoveBackForce();
-            }
+            rigid.AddForce(-transform.forward * entity.moveEnergy * entity.curAccelForce, ForceMode.Impulse);
+            rigid.AddTorque(transform.up * entity.angleEnergy * entity.curAngleAccelForce, ForceMode.Impulse);
 
+            //if (Input.GetKey(KeyCode.W))
+            //{
+            //    AddMoveForwardForce();
+            //}
+
+            //if (Input.GetKey(KeyCode.S))
+            //{
+            //    AddMoveBackForce();
+            //}
         }
-	}
+    }
 
     void AddMoveForwardForce()
     {
-        rigid.AddForce(-transform.forward  * entity.moveEnergy, ForceMode.Impulse);
+        //rigid.AddForce(-transform.forward  * entity.moveEnergy, ForceMode.Impulse);
+        //entity.curAccelForce = Input.GetAxis("Horizontal");
+        //entity.curAccelForce = Input.GetAxis("Vertical");
     }
 
     void AddMoveBackForce()
     {
-        if (entity.isMove)
-        {
-            rigid.AddForce(transform.forward * entity.moveEnergy * 0.6f, ForceMode.Impulse);
-        }
-        else if (entity.isStop)
-        {
-            print("Back");
-            rigid.AddForce(transform.forward * entity.moveEnergy * 0.4f, ForceMode.Impulse);
-        }
+        //if (entity.goForward)
+        //{
+        //    rigid.AddForce(transform.forward * entity.moveEnergy * 0.6f, ForceMode.Impulse);
+        //}
+        //else if (entity.isStop)
+        //{
+        //    print("Back");
+        //    rigid.AddForce(transform.forward * entity.moveEnergy * 0.4f, ForceMode.Impulse);
+        //}
     }
 }

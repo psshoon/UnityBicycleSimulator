@@ -28,6 +28,7 @@ public class onBicycleBeh : StateMachineBehaviour {
         else if (stateInfo.IsName("RideLoop_01"))
         {
             entity.isMove = true;
+            entity.goForward = true;
         }
 
         else if (stateInfo.IsName("Break_01"))
@@ -37,7 +38,7 @@ public class onBicycleBeh : StateMachineBehaviour {
 
         else if (stateInfo.IsName("RightTilt") || stateInfo.IsName("LeftTilt"))
         {
-            entity.isMove = false;
+            entity.isTurn = false;
         }
     }
 

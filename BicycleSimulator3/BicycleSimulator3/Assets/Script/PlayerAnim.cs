@@ -23,7 +23,7 @@ public class PlayerAnim : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-
+                
             }
         }
     }

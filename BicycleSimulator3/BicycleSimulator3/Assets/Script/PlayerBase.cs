@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour {
-    public float moveSpeed, moveEnergy, angleEnergy = 0;
-    public bool isMove, isStop, onBic, isTurn, isTilt = false;
+    public float moveSpeed, moveEnergy, angleEnergy, curAccelForce, curAngleAccelForce = 0;
+    public float animMoveForce, animAngleForce = 1;
+    public bool isMove, isStop, onBic, isTurn, isTilt, goBack, goForward = false;
 
     public Vector3 speed;
 
@@ -21,7 +22,11 @@ public class PlayerBase : MonoBehaviour {
 
     private void Update()
     {
-        //speed = rigid.velocity;
+        //if((rigid.velocity.normalized + transform.forward).sqrMagnitude > 1)
+        //{
+
+        //}
+
         moveSpeed = Mathf.Sqrt((rigid.velocity.x * rigid.velocity.x) + (rigid.velocity.z * rigid.velocity.z));
     }
 }
