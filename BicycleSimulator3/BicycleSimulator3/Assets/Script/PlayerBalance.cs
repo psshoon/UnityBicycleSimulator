@@ -33,10 +33,15 @@ public class PlayerBalance : MonoBehaviour {
         Quaternion rotationAngle3 = Quaternion.Euler(
             Vector3.Cross(transform.up, Vector3.up) * Time.fixedDeltaTime * 500);
 
-        if (Vector3.Angle(transform.up, Vector3.up) > 0)
+        if (Vector3.Angle(transform.up, zyProjectionPoint) < 10)
         {
             //rigid.rotation = Quaternion.Euler(Vector3.up);
-            //rigid.MoveRotation(transform.rotation * rotationAngle3);
+            
+        }
+        else
+        {
+            print(Vector3.Cross(transform.up, zyProjectionPoint));
+            rigid.MoveRotation(transform.rotation * Quaternion.Euler(transform.forward * Vector3.Cross(transform.up, zyProjectionPoint).magnitude));
         }
         curRotation = rigid.rotation.eulerAngles;
 
